@@ -1,8 +1,7 @@
 package com.jimingqiang.study.guava;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ListMultimap;
+import com.google.common.base.Function;
+import com.google.common.collect.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -48,6 +47,40 @@ public class GuavaMultimap {
         System.out.println(hashMultimap.containsKey("Fruits"));
         System.out.println(hashMultimap.get("Fruits").size());
         System.out.println(hashMultimap.get("Fruits"));
+
+
+        System.out.println("========================================");
+
+        /**
+         * 有一组对象，它们在某个属性上分别有独一无二的值，而我们希望能够按照这个属性值查找对象——译者注：
+         * 这个方法返回一个Map，键为Function返回的属性值，值为Iterable中相应的元素，因此我们可以反复用这个Map进行查找操作。
+         */
+        ImmutableSet digits0 = ImmutableSet.of("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine");
+        ImmutableMap immutableMap = Maps.uniqueIndex(digits0, new Function<String, String>() {
+
+            @Override
+            public String apply(String input) {
+                return input;
+            }
+        });
+
+        System.out.println(immutableMap);
+
+
+        /**
+         * 作为Maps.uniqueIndex的兄弟方法，Multimaps.index(Iterable, Function)通常针对的场景是：
+         * 有一组对象，它们有共同的特定属性，我们希望按照这个属性的值查询对象，但属性值不一定是独一无二的。
+         */
+        ImmutableSet digits = ImmutableSet.of("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine");
+        Function<String, Integer> lengthFunction = new Function<String, Integer>() {
+            public Integer apply(String string) {
+                return string.length();
+            }
+        };
+
+        ImmutableListMultimap index = Multimaps.index(digits, lengthFunction);
+
+        System.out.println(index);
 
     }
 
