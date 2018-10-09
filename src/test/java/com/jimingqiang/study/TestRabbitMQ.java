@@ -1,5 +1,6 @@
 package com.jimingqiang.study;
 
+import com.jimingqiang.study.rabbitmq.confirm.CallBackSender;
 import com.jimingqiang.study.rabbitmq.direct.HelloSender;
 import com.jimingqiang.study.rabbitmq.fanout.FanoutSender;
 import com.jimingqiang.study.rabbitmq.topic.TopicSender;
@@ -27,6 +28,9 @@ public class TestRabbitMQ {
     @Autowired
     private FanoutSender fanoutSender;
 
+    @Autowired
+    private CallBackSender callBackSender;
+
 
 
     @Test
@@ -43,5 +47,11 @@ public class TestRabbitMQ {
     @Test
     public void testFanoutRabbit() {
         fanoutSender.send();
+    }
+
+    @Test
+    public void testCofirmRabbit() {
+        callBackSender.send("topic.baqgl.admin.1", "测试消息");
+
     }
 }
