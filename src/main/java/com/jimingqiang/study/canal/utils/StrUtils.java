@@ -21,4 +21,14 @@ public class StrUtils {
         return source.replaceAll("'", "''").replace("\\","\\\\");
     }
 
+
+    public static void main(String[] args) {
+        Runtime runtime =  Runtime.getRuntime();
+        System.out.println(runtime.freeMemory());
+        System.out.println(runtime.maxMemory());
+        System.out.println(runtime.totalMemory());
+    }
+
 }
+
+

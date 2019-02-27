@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author mingqiang ji
  */
 @Data
-@ApiModel(value="user对象",description="用户对象user")
+@ApiModel(value="user对象",description="用户对象user111")
 public class User implements Serializable {
     @ApiModelProperty(value="用户名",name="username",required = true,example="xingguo")
     private String name;

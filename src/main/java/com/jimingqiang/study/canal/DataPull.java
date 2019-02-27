@@ -9,20 +9,18 @@ import com.jimingqiang.study.canal.handler.MessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+//@Component
 public class DataPull {
     private static Logger _LOG = LoggerFactory.getLogger(DataPull.class);
 
-    @Value("${sub.rev.batchsize}")
+    //@Value("${sub.rev.batchsize}")
     private String batchSize;
-    @Value("${sub.rev.getmessage.interval}")
+    //@Value("${sub.rev.getmessage.interval}")
     private String messageInterval;
-    @Value("${sub.system.name}")
+    //@Value("${sub.system.name}")
     private String systemName;
     
     @Autowired

@@ -4,10 +4,8 @@ import com.alibaba.otter.canal.client.CanalConnector;
 import com.alibaba.otter.canal.client.CanalConnectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-@Component("connectorUtil")
+//@Component("connectorUtil")
 public class ConnectorUtil {
 
     private Logger _LOG = LoggerFactory.getLogger(ConnectorUtil.class);
@@ -18,16 +16,16 @@ public class ConnectorUtil {
 
     private String serverPort;
 
-    @Value("${canal.server.instance.name}")
+    //@Value("${canal.server.instance.name}")
     private String instanceName;
 
-    @Value("${canal.server.instance.subscribe}")
+    //@Value("${canal.server.instance.subscribe}")
     private String instanceSubscribe;
 
     private String retryNum;
 
     private String retryInterval;
-    @Value("${canal.zk.addr}")
+    //@Value("${canal.zk.addr}")
     private String zkAddr;
     private int retryCount = 0;
 

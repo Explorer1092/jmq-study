@@ -5,8 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
@@ -15,11 +13,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by wanglei on 25/03/2017.
  */
-@Component
+//@Component
 public class SpringInitAfterRun implements InitializingBean {
     private static final Logger _LOG = LoggerFactory.getLogger(SpringInitAfterRun.class);
 
-    @Value("${sub.system.name}")
+    //@Value("${sub.system.name}")
     private String subSystemName;
     @Autowired
     private DataPull DataPull;
