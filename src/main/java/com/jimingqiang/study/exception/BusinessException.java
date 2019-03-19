@@ -30,4 +30,21 @@ public class BusinessException extends RuntimeException {
         this.msg = msg;
     }
 
+
+    public static void main(String[] args) {
+        BusinessException businessException = new BusinessException(1,"ttttttt");
+        try {
+            businessException.ee();
+        } catch (Exception e) {
+            //System.out.println(e);
+            e.printStackTrace();
+        }
+
+    }
+
+    public void ee(){
+        throw new BusinessException(1,"ttttttt");
+
+    }
+
 }

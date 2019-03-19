@@ -8,10 +8,14 @@ import org.springframework.context.ApplicationContext;
 //@EnableAspectJAutoProxy
 public class StudyApplication {
 
+
+
     public static void main(String[] args) {
 
 
        ApplicationContext run = SpringApplication.run(StudyApplication.class, args);
+
+
         //AopBean beanPost = (AopBean) run.getBean("aopBean");
        // beanPost.say("hello");
        /* User user = new User();
