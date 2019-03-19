@@ -2,9 +2,12 @@ package com.jimingqiang.study.guava;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
+import com.google.common.collect.Collections2;
 import com.google.common.collect.FluentIterable;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
+import org.springframework.lang.Nullable;
 
 import java.util.Collection;
 import java.util.List;
@@ -105,6 +108,64 @@ public class GuavaLists {
         for (String name : result) {
             System.out.println(name);
         }
+
+
+
+
+        User user5 = new User(1,"carl",12);
+        User user6 = new User(2,null,12);
+        User user7 = new User(3,"",12);
+        User user8 = new User(4,"kevin",12);
+
+        List<User> users1 = Lists.newArrayList(user5, user6, user7, user8);
+
+
+
+        List<Integer> transform1 = Lists.transform(users1, new Function<User, Integer>() {
+            @Override
+            public Integer apply(User user) {
+                return user.getId();
+            }
+        });
+
+        System.out.println(transform1.toString());
+
+
+        List<String> listStr = Lists.newArrayList("hello", "world", "hehe");
+        //查找首个以h开头的值
+        String value = Iterables.find(listStr, new Predicate<String>() {
+            @Override
+            public boolean apply(String input) {
+                return input.startsWith("h");
+            }
+        });
+
+        System.out.println(value);
+
+        //Collections2.filter过滤集合中所有符合特定条件的元素。
+        List<String> listWithH = Lists.newArrayList(Collections2.filter(listStr, new Predicate<String>() {
+            @Override
+            public boolean apply(@Nullable String s) {
+                return s.startsWith("h");
+            }
+        }));
+
+        System.out.println(listWithH);
+
+
+
+
+        //Lists.partition可以将一个大的集合分割成小集合，适用于分批查询、插入等场景。
+
+        List<String> list = Lists.newArrayList("1", "2", "3","4","5","6","7");
+        List<List<String>>  batchList = Lists.partition(list,6);
+
+        System.out.println(batchList);
+        //被分割成了： [[1, 2, 3], [4, 5, 6], [7]]
+
+
+
+
         //System.out.println(strings.size());
         //assertEquals(names, Lists.newArrayList("carl", "erin", "kevin", "kevin"));
     }
@@ -112,9 +173,17 @@ public class GuavaLists {
 
     class User{
 
+        private Integer id;
+
         private String name;
 
         private int age;
+
+        public User(Integer id, String name, int age) {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+        }
 
         public User(String name, int age) {
             this.name = name;
@@ -135,6 +204,14 @@ public class GuavaLists {
 
         public void setAge(int age) {
             this.age = age;
+        }
+
+        public Integer getId() {
+            return id;
+        }
+
+        public void setId(Integer id) {
+            this.id = id;
         }
     }
 }

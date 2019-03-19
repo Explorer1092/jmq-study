@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jimingqiang.study.mybatisgenerator.dao.friendCircleGiveCourseMapper" >
+  <resultMap id="BaseResultMap" type="com.jimingqiang.study.mybatisgenerator.entity.friendCircleGiveCourse" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="student_id" property="studentId" jdbcType="BIGINT" />
+    <result column="serial_number" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="share_time" property="shareTime" jdbcType="TIMESTAMP" />
+    <result column="channel" property="channel" jdbcType="TINYINT" />
+    <result column="poster_type" property="posterType" jdbcType="TINYINT" />
+    <result column="share_state" property="shareState" jdbcType="TINYINT" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+    <result column="source" property="source" jdbcType="TINYINT" />
+    <result column="gift_time" property="giftTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="scan_time" property="scanTime" jdbcType="TIMESTAMP" />
+    <result column="author_id" property="authorId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parent_id, student_id, serial_number, share_time, channel, poster_type, share_state, 
+    state, source, gift_time, create_time, update_time, scan_time, author_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from friend_circle_give_course
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from friend_circle_give_course
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jimingqiang.study.mybatisgenerator.entity.friendCircleGiveCourse" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into friend_circle_give_course (parent_id, student_id, serial_number, 
+      share_time, channel, poster_type, 
+      share_state, state, source, 
+      gift_time, create_time, update_time, 
+      scan_time, author_id)
+    values (#{parentId,jdbcType=BIGINT}, #{studentId,jdbcType=BIGINT}, #{serialNumber,jdbcType=VARCHAR}, 
+      #{shareTime,jdbcType=TIMESTAMP}, #{channel,jdbcType=TINYINT}, #{posterType,jdbcType=TINYINT}, 
+      #{shareState,jdbcType=TINYINT}, #{state,jdbcType=TINYINT}, #{source,jdbcType=TINYINT}, 
+      #{giftTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{scanTime,jdbcType=TIMESTAMP}, #{authorId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jimingqiang.study.mybatisgenerator.entity.friendCircleGiveCourse" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into friend_circle_give_course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="serialNumber != null" >
+        serial_number,
+      </if>
+      <if test="shareTime != null" >
+        share_time,
+      </if>
+      <if test="channel != null" >
+        channel,
+      </if>
+      <if test="posterType != null" >
+        poster_type,
+      </if>
+      <if test="shareState != null" >
+        share_state,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="giftTime != null" >
+        gift_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="scanTime != null" >
+        scan_time,
+      </if>
+      <if test="authorId != null" >
+        author_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="parentId != null" >
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=BIGINT},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTime != null" >
+        #{shareTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channel != null" >
+        #{channel,jdbcType=TINYINT},
+      </if>
+      <if test="posterType != null" >
+        #{posterType,jdbcType=TINYINT},
+      </if>
+      <if test="shareState != null" >
+        #{shareState,jdbcType=TINYINT},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="giftTime != null" >
+        #{giftTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scanTime != null" >
+        #{scanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authorId != null" >
+        #{authorId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jimingqiang.study.mybatisgenerator.entity.friendCircleGiveCourse" >
+    update friend_circle_give_course
+    <set >
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=BIGINT},
+      </if>
+      <if test="serialNumber != null" >
+        serial_number = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTime != null" >
+        share_time = #{shareTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channel != null" >
+        channel = #{channel,jdbcType=TINYINT},
+      </if>
+      <if test="posterType != null" >
+        poster_type = #{posterType,jdbcType=TINYINT},
+      </if>
+      <if test="shareState != null" >
+        share_state = #{shareState,jdbcType=TINYINT},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="giftTime != null" >
+        gift_time = #{giftTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scanTime != null" >
+        scan_time = #{scanTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authorId != null" >
+        author_id = #{authorId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jimingqiang.study.mybatisgenerator.entity.friendCircleGiveCourse" >
+    update friend_circle_give_course
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      student_id = #{studentId,jdbcType=BIGINT},
+      serial_number = #{serialNumber,jdbcType=VARCHAR},
+      share_time = #{shareTime,jdbcType=TIMESTAMP},
+      channel = #{channel,jdbcType=TINYINT},
+      poster_type = #{posterType,jdbcType=TINYINT},
+      share_state = #{shareState,jdbcType=TINYINT},
+      state = #{state,jdbcType=TINYINT},
+      source = #{source,jdbcType=TINYINT},
+      gift_time = #{giftTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      scan_time = #{scanTime,jdbcType=TIMESTAMP},
+      author_id = #{authorId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

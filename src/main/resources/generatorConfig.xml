@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/jimingqiang/.m2/repository/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar"/>
+    <!--<classPathEntry-->
+    <!--location="/Users/guojianzhu/Documents/qding/mysql-connector-java-5.1.18.jar"/>-->
+
+
+
+    <context id="DB2Tables1" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://10.32.32.22:3306/manager_clt"
+                        userId="vipkid" password="Vi1pkidDb_rootZAQ!"/>
+
+        <javaTypeResolver type="">
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.jimingqiang.study.mybatisgenerator.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.jimingqiang.study.mybatisgenerator.mybatisxml" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- ANNOTATEDMAPPER XMLMAPPER -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jimingqiang.study.mybatisgenerator.dao"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="friend_circle_give_course" domainObjectName="friendCircleGiveCourse"
+               enableSelectByExample="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+<!--
+            <generatedKey column="order_filter_id" sqlStatement="MySql" identity="true"/>
+-->
+        </table>
+
+        <!--</table>-->
+    </context>
+
+</generatorConfiguration>

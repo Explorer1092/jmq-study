@@ -4,6 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.collect.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -81,6 +82,16 @@ public class GuavaMultimap {
         ImmutableListMultimap index = Multimaps.index(digits, lengthFunction);
 
         System.out.println(index);
+
+
+        ArrayList<People> people = Lists.newArrayList(new People("1", 1), new People("2", 1), new People("3", 1));
+        ImmutableMap<String, People> stringPeopleImmutableMap = Maps.uniqueIndex(people, new Function<People, String>() {
+            @Override
+            public String apply(People people) {
+                return people.getName();
+            }
+        });
+
 
     }
 
