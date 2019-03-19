@@ -26,7 +26,7 @@ public class SwaggerConfig  {
 
     /**
      如果项目配置tomcat访问路径，例如qdp-wain-web这样，需要配置下面的pathProvider方法，
-     未配置访问路径，则忽略pathProvider方法和HOST配置1111111111g
+     未配置访问路径，则忽略pathProvider方法和HOST配置yyyyyyyyy
      **/
     @Value("${spring.swagger.host}")
     private String Host;
