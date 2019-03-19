@@ -3,7 +3,7 @@ package com.jimingqiang.study.designpatterns.builder;
 /**
  * @Auther: jimingqiang
  * @Date: 2019/3/19 20:06
- * @Description:
+ * @Description: builder模式
  */
 public class Hero {
 
